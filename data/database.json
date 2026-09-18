@@ -1,0 +1,330 @@
+{
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Heavy-Duty Epoxy Flooring & Warehousing Waterproofing",
+      "client": "NLC (National Logistics Cell)",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Waterproofing",
+      "location": "Freight Hub & Logistics Terminal, KPK",
+      "areaSqFt": 45000,
+      "year": 2025,
+      "status": "Completed",
+      "featured": true,
+      "description": "Complete turnkey supply and professional application of 3mm self-leveling industrial epoxy floor coating, combined with elastomeric polyurethane roof waterproofing across heavy logistics bays.",
+      "chemicalsUsed": [
+        "Solvent-Free High-Build Epoxy Screed",
+        "Elastomeric Polyurethane Primer",
+        "Aliphatic UV-Resistant Topcoat",
+        "Heavy-Duty Joint Sealant"
+      ],
+      "highlights": [
+        "Heavy forklift traffic & impact load resistance",
+        "Impermeable to oil, grease, and diesel spillages",
+        "Seamless, easy-to-clean sanitary finish",
+        "Applied within strict 14-day operational shutdown"
+      ],
+      "imageUrl": "/images/project%20(1).jpeg",
+      "videoUrl": "/images/project%20(1).mp4",
+      "beforeAfterImages": [
+        "/images/project%20(2).jpeg",
+        "/images/project%20(3).jpeg",
+        "/images/project%20(4).jpeg",
+        "/images/project%20(5).jpeg",
+        "/images/project%20(6).jpeg",
+        "/images/project%20(7).jpeg",
+        "/images/project%20(8).jpeg"
+      ],
+      "createdAt": "2025-02-10T10:00:00.000Z"
+    },
+    {
+      "id": "proj-2",
+      "title": "High-Gloss Workshop Epoxy & Service Bay Demarcation",
+      "client": "Toyota & Daihatsu 3S Authorized Facility",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Paint & Coating Systems",
+      "location": "Frontier Motors 3S Service Center, KPK",
+      "areaSqFt": 18500,
+      "year": 2025,
+      "status": "Completed",
+      "featured": true,
+      "description": "Installation of high-gloss chemical-resistant self-leveling epoxy flooring across vehicle maintenance bays, quick-lube pits, and customer handover areas with custom lane demarcations.",
+      "chemicalsUsed": [
+        "Deep-Penetrating Epoxy Primer",
+        "Self-Leveling 2mm Epoxy Resin System",
+        "Polyurethane High-Reflectance Topcoat",
+        "Safety Yellow Traffic Line Coating"
+      ],
+      "highlights": [
+        "Total resistance to brake fluid, battery acid & motor oil",
+        "Enhanced ambient brightness with 85% light reflectivity",
+        "Non-slip quartz broadcast in wash and wash-down bays",
+        "Passed Toyota global standard visual & slip inspection"
+      ],
+      "imageUrl": "/images/project%20(9).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2025-05-18T14:30:00.000Z"
+    },
+    {
+      "id": "proj-3",
+      "title": "Anti-Carbonation & Weather-Shield Protective Coating",
+      "client": "Berger Paints Pakistan Distribution Center",
+      "category": "Paint & Coating Systems",
+      "secondaryCategory": "Waterproofing",
+      "location": "Industrial Corridor, KPK",
+      "areaSqFt": 32000,
+      "year": 2024,
+      "status": "Completed",
+      "featured": true,
+      "description": "Industrial structural coating application involving structural steel anti-corrosion primers, elastomeric anti-carbonation facade coatings, and roof seepage protection.",
+      "chemicalsUsed": [
+        "Zinc Phosphate 2K Epoxy Primer",
+        "Elastomeric Anti-Carbonation Membrane Paint",
+        "Silicone-Modified Waterproof Exterior Coating",
+        "Polyurethane Weather-Shield Topcoat"
+      ],
+      "highlights": [
+        "10-Year resistance against severe ultraviolet degradation",
+        "Micro-porous structure allowing concrete breathability",
+        "Protection of steel rebar against carbon dioxide ingress",
+        "Uniform industrial facade aesthetics across complex"
+      ],
+      "imageUrl": "/images/project%20(10).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2024-11-05T09:15:00.000Z"
+    },
+    {
+      "id": "proj-4",
+      "title": "Substructure Basement Waterproofing & ESD Flooring",
+      "client": "Pak Suzuki Authorized Workshop & Depot",
+      "category": "Waterproofing",
+      "secondaryCategory": "Epoxy Flooring",
+      "location": "Peshawar Road",
+      "areaSqFt": 22000,
+      "year": 2024,
+      "status": "Completed",
+      "featured": true,
+      "description": "Deep subterranean basement waterproofing using negative-side crystalline slurries, coupled with conductive anti-static (ESD) epoxy flooring for electronic diagnostics rooms.",
+      "chemicalsUsed": [
+        "Crystalline Capillary Slurry System",
+        "Water-Based Epoxy Moisture Vapor Barrier",
+        "Conductive Copper Tape & ESD Epoxy Primer",
+        "Static-Dissipative Epoxy Topcoat"
+      ],
+      "highlights": [
+        "Permanently sealed water ingress under hydrostatic pressure",
+        "Surface resistivity certified to 10^6 - 10^9 ohms",
+        "Safeguarded sensitive computerized vehicle diagnostics",
+        "Zero dampness throughout consecutive monsoon seasons"
+      ],
+      "imageUrl": "/images/project%20(11).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2024-08-22T16:45:00.000Z"
+    },
+    {
+      "id": "proj-5",
+      "title": "4mm APP Membrane Commercial Roof & Reservoir Lining",
+      "client": "Yousafzai Commercial Plaza & Towers",
+      "category": "Waterproofing",
+      "secondaryCategory": "Paint & Coating Systems",
+      "location": "Mardan Commercial Center",
+      "areaSqFt": 28000,
+      "year": 2025,
+      "status": "Completed",
+      "featured": false,
+      "description": "Torch-applied 4mm Atactic Polypropylene (APP) modified bitumen membrane for multi-story flat roof, accompanied by potable water certified epoxy lining for underground fire & drinking tanks.",
+      "chemicalsUsed": [
+        "Bituminous Primer D-41",
+        "4mm Polyester-Reinforced APP Membrane",
+        "Non-Toxic Food-Grade Potable Water Epoxy Lining",
+        "Low-Modulus Polyurethane Joint Sealant"
+      ],
+      "highlights": [
+        "Complete 72-hour water ponding test passed with 0 seepage",
+        "Certified safe for human drinking water storage tanks",
+        "UV reflective mineral chip top protection",
+        "Thermal insulation board integration under ballast"
+      ],
+      "imageUrl": "/images/project%20(12).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2025-01-14T11:00:00.000Z"
+    },
+    {
+      "id": "proj-6",
+      "title": "Thermal Shock Resistant Polyurethane (PU) Concrete Screed",
+      "client": "Premier Food Processing & Cold Chain Facility",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Paint & Coating Systems",
+      "location": "Hattar Industrial Estate",
+      "areaSqFt": 16000,
+      "year": 2026,
+      "status": "Ongoing",
+      "featured": false,
+      "description": "Application of 6mm heavy-duty polyurethane resin mortar designed for extreme thermal shock, frequent hot water washdowns, and high chemical acidity.",
+      "chemicalsUsed": [
+        "Polyurethane Concrete Scratch Coat",
+        "6mm Heavy-Duty PU Resin Screed",
+        "Integral Bacteriostatic Additive",
+        "Continuous 100mm Curved Coving"
+      ],
+      "highlights": [
+        "Operational temperature range from -30°C to +120°C",
+        "HACCP and food-safe hygiene certification standard",
+        "High resistance to lactic acid and alkaline cleaning agents",
+        "Non-slip textured profile for wet working zones"
+      ],
+      "imageUrl": "/images/project%20(13).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2026-03-01T10:00:00.000Z"
+    },
+    {
+      "id": "proj-7",
+      "title": "Hospital Operating Theatre & Sterile Cleanrooms Anti-Bacterial Epoxy",
+      "client": "Mardan Medical Complex & Regional Surgical Hospital",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Paint & Coating Systems",
+      "location": "Surgical Suites & Cleanroom Wings, Mardan, KPK",
+      "areaSqFt": 26000,
+      "year": 2026,
+      "status": "Completed",
+      "featured": true,
+      "description": "Complete supply and specialized application of 2.5mm seamless anti-bacterial self-leveling epoxy flooring with 100mm sanitary wall-to-floor curved coving across surgical suites, operating rooms (OT), and sterile pharmaceutical corridors. Formulated for heavy resistance to Betadine, disinfectants, and medical carts.",
+      "chemicalsUsed": [
+        "Anti-Bacterial Penetrating Epoxy Primer",
+        "Self-Leveling 2.5mm Solvent-Free Epoxy Screed",
+        "Sanitary Mortar for Seamless Floor-to-Wall Coving",
+        "High-Durability Aliphatic Polyurethane Topcoat"
+      ],
+      "highlights": [
+        "Seamless antimicrobial surface with zero dirt-trapping joints",
+        "Floor-to-wall radius curved coving for easy disinfection",
+        "Total chemical stain resistance to Betadine and surgical antiseptics",
+        "High-gloss mirror finish maximizing surgical theater illumination"
+      ],
+      "imageUrl": "/images/project%20(14).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2026-06-15T11:00:00.000Z"
+    },
+    {
+      "id": "proj-8",
+      "title": "Industrial Manufacturing Production Hall & Warehouse Mirror-Gloss Flooring",
+      "client": "Frontier Industrial Corporation & Logistics Hub",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Waterproofing",
+      "location": "Nowshera Industrial Zone, KPK",
+      "areaSqFt": 52000,
+      "year": 2025,
+      "status": "Completed",
+      "featured": true,
+      "description": "Large-scale self-leveling industrial epoxy application across active manufacturing production floors, raw material warehousing, and forklift transit paths. Provides a high-gloss, dust-free surface that withstands abrasive wheel traffic.",
+      "chemicalsUsed": [
+        "High-Adhesion Deep Moisture Primer",
+        "3mm Heavy-Duty Self-Leveling Epoxy Slurry",
+        "Abrasion-Resistant Quartz Filler",
+        "High-Reflective Protective Topcoat"
+      ],
+      "highlights": [
+        "Forklift rolling load and pallet transit durability",
+        "85% ambient light reflectivity reducing energy consumption",
+        "Oil and industrial chemical spill impermeability",
+        "Dust-free monolithic finish protecting delicate equipment"
+      ],
+      "imageUrl": "/images/project%20(15).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2025-09-20T14:00:00.000Z"
+    },
+    {
+      "id": "proj-9",
+      "title": "Vibrant Chemical-Resistant Self-Leveling Epoxy with Spiked Roller De-aeration",
+      "client": "KPK Advanced Processing Unit",
+      "category": "Epoxy Flooring",
+      "secondaryCategory": "Paint & Coating Systems",
+      "location": "Peshawar Industrial Park",
+      "areaSqFt": 15000,
+      "year": 2026,
+      "status": "Completed",
+      "featured": true,
+      "description": "Application of vibrant emerald-green chemical-grade self-leveling epoxy with precision spiked roller de-aeration to pop microscopic air entrapment and create a flawless, glass-smooth surface for specialized clean processing.",
+      "chemicalsUsed": [
+        "Solvent-Free 100% Solids Epoxy Primer",
+        "Self-Leveling Pigmented Epoxy Resin Matrix",
+        "Micro-Deaerating Agents & Leveling Additives",
+        "UV and Chemical Protective Topshield"
+      ],
+      "highlights": [
+        "De-aerated with precision spiked rollers for zero pinholes",
+        "Striking emerald green safety and visual contrast aesthetic",
+        "Superior tensile adhesion to concrete substrate",
+        "Video inspection walkthrough recorded on site"
+      ],
+      "imageUrl": "/images/project%20(16).jpeg",
+      "beforeAfterImages": [],
+      "createdAt": "2026-08-01T09:00:00.000Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-1789724790147",
+      "name": "Testing",
+      "organization": "predax",
+      "phone": "03165657513",
+      "email": "zohaibkhaneduawkum@gmail.com",
+      "service": "Epoxy Flooring",
+      "estimatedArea": "10000",
+      "location": "Mardan",
+      "message": "testing form..",
+      "status": "New",
+      "createdAt": "2026-09-18T09:46:30.147Z"
+    },
+    {
+      "id": "inq-1789552562483",
+      "name": "Test Contractor",
+      "organization": "Prime Builders",
+      "phone": "0300-1112233",
+      "email": "N/A",
+      "service": "Epoxy Flooring",
+      "estimatedArea": "Not specified",
+      "location": "Not specified",
+      "message": "Testing quote submission",
+      "status": "New",
+      "createdAt": "2026-09-16T09:56:02.483Z"
+    },
+    {
+      "id": "inq-1",
+      "name": "Engr. Tariq Mehmood",
+      "organization": "Frontier Industrial Corporation",
+      "phone": "0300-5841234",
+      "email": "tariq@fic-pk.com",
+      "service": "Epoxy Flooring",
+      "estimatedArea": "25,000 sq. ft.",
+      "location": "Nowshera Industrial Zone",
+      "message": "We require heavy-duty epoxy flooring for our upcoming textile spinning unit. Please provide technical data sheet and quotation.",
+      "status": "New",
+      "createdAt": "2026-09-14T08:20:00.000Z"
+    },
+    {
+      "id": "inq-2",
+      "name": "Sajjad Ahmad Khan",
+      "organization": "Gulberg Heights Commercial",
+      "phone": "0333-9128844",
+      "email": "sajjad.plaza@gmail.com",
+      "service": "Waterproofing",
+      "estimatedArea": "12,000 sq. ft.",
+      "location": "Mardan City",
+      "message": "Basement retaining wall seepage during recent rainfall. Need immediate site survey and crystalline waterproofing quote.",
+      "status": "Contacted",
+      "createdAt": "2026-09-12T14:45:00.000Z"
+    }
+  ],
+  "adminUser": {
+    "username": "admin@ramzanchemical.com",
+    "fullName": "Ramzan Chemical Management",
+    "role": "SuperAdmin"
+  },
+  "sessions": {
+    "3417db2783e3dc329245c54804eab3662f39c539499798eb8ce4d176027e9a31": {
+      "username": "admin@ramzanchemical.com",
+      "expiresAt": 1790157382434
+    }
+  }
+}
