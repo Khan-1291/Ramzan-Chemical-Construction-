@@ -5,47 +5,50 @@ export interface Project {
   category: 'Waterproofing' | 'Epoxy Flooring' | 'Paint & Coating Systems' | string;
   secondaryCategory?: string;
   location: string;
-  areaSqFt: number;
-  year: number;
-  status: 'Completed' | 'Ongoing' | 'Under Tender';
+  year: number | string;
+  areaSqFt?: number;
+  status: 'Completed' | 'In Progress';
   featured: boolean;
-  description: string;
-  chemicalsUsed: string[];
-  highlights: string[];
   imageUrl: string;
   videoUrl?: string;
+  description: string;
+  chemicalsUsed: string[];
+  scopeOfWork?: string[];
+  highlights: string[];
   beforeAfterImages?: string[];
   createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Inquiry {
   id: string;
   name: string;
-  organization: string;
+  organization?: string;
   phone: string;
-  email: string;
-  service: string;
-  estimatedArea: string;
+  email?: string;
+  serviceRequested: string;
+  estimatedArea?: string;
   location: string;
-  message: string;
-  status: 'New' | 'Contacted' | 'Site Survey Scheduled' | 'Completed';
+  notes?: string;
+  status: 'New' | 'Contacted' | 'Survey Scheduled' | 'Proposal Sent' | 'Closed';
   createdAt: string;
 }
 
-export interface AdminUser {
-  username: string;
-  fullName: string;
-  role: string;
+export interface MediaFile {
+  fileName: string;
+  url: string;
+  size: number;
+  mtime: string;
 }
 
-export interface ServiceDetail {
+export interface Service {
   id: string;
   title: string;
   tagline: string;
+  badge: string;
+  icon: string;
   shortDesc: string;
   fullDesc: string;
-  icon: string;
-  badge: string;
   applications: string[];
   systemsIncluded: string[];
   keyBenefits: string[];
@@ -54,12 +57,58 @@ export interface ServiceDetail {
   imageUrl: string;
 }
 
-export interface CMSFrameworkComparison {
+export interface ClientLogo {
+  name: string;
+  sector: string;
+  badge: string;
+  projectsDelivered: string;
+  logoText: string;
+  color: string;
+}
+
+export interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
+export interface CostEstimatorSystem {
+  id: string;
+  name: string;
+  category: string;
+  baseRatePerSqFt: number;
+  recommendedSystem: string;
+  coats: string;
+  turnaroundPer1000SqFtDays: number;
+}
+
+export interface CompanyProfile {
+  legalName: string;
+  incorporationNo: string;
+  fbrRegistrationNo: string;
+  referenceNo: string;
+  taxOffice: string;
+  address: string;
+  phone: string;
+  phoneDisplay: string;
+  phoneEmergency: string;
+  email: string;
+  whatsappNumber: string;
+  whatsappMessage: string;
+  workingHours: string;
+}
+
+export interface CMSFramework {
   name: string;
   type: string;
   database: string;
+  bestFor: string;
   suitabilityRating: string;
   pros: string[];
   cons: string[];
-  bestFor: string;
 }

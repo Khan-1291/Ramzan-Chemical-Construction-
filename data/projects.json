@@ -1,0 +1,174 @@
+[
+  {
+    "id": "proj-1-nlc-epoxy",
+    "title": "Industrial Epoxy Flooring Application",
+    "client": "NLC",
+    "category": "Epoxy Flooring",
+    "secondaryCategory": "Industrial Solutions",
+    "location": "Pakistan",
+    "year": 2024,
+    "status": "Completed",
+    "featured": true,
+    "imageUrl": "/images/project-1.jpeg",
+    "description": "Professional supply and application of durable industrial epoxy flooring executed using quality construction chemicals and modern application techniques for NLC.",
+    "chemicalsUsed": [
+      "Industrial Epoxy Flooring Resin",
+      "Epoxy Primer",
+      "Protective Topcoat"
+    ],
+    "highlights": [
+      "Reliable, durable, and cost-effective flooring solution",
+      "High-gloss seamless finish with quality construction chemicals",
+      "Executed with modern application techniques and professional service",
+      "Delivered with a commitment to quality workmanship and customer satisfaction"
+    ],
+    "beforeAfterImages": [
+      "/images/project-2.jpeg",
+      "/images/project-3.jpeg",
+      "/images/project-16.jpeg"
+    ],
+    "createdAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "id": "proj-2-toyota-epoxy",
+    "title": "Commercial Workshop Epoxy Flooring",
+    "client": "Toyota Corolla",
+    "category": "Epoxy Flooring",
+    "secondaryCategory": "Commercial Solutions",
+    "location": "Pakistan",
+    "year": 2023,
+    "status": "Completed",
+    "featured": true,
+    "imageUrl": "/images/project-15.jpeg",
+    "description": "Quality supply and application of durable, chemical-resistant epoxy flooring for Toyota Corolla automotive workshop and service facilities.",
+    "chemicalsUsed": [
+      "High-Build Epoxy Floor Coating",
+      "Moisture-Tolerant Primer",
+      "Chemical-Resistant Polyurethane Sealer"
+    ],
+    "highlights": [
+      "Seamless chemical-resistant surface designed for automotive service environments",
+      "High-gloss reflective finish enhancing workspace visibility",
+      "Applied by experienced team using modern application techniques",
+      "Durable and wear-resistant commercial flooring"
+    ],
+    "beforeAfterImages": [
+      "/images/project-9.jpeg"
+    ],
+    "createdAt": "2023-11-20T09:30:00.000Z"
+  },
+  {
+    "id": "proj-3-berger-coating",
+    "title": "Paint & Protective Coating Systems",
+    "client": "Berger",
+    "category": "Paint & Coating Systems",
+    "secondaryCategory": "Industrial Solutions",
+    "location": "Pakistan",
+    "year": 2024,
+    "status": "Completed",
+    "featured": true,
+    "imageUrl": "/images/project-10.jpeg",
+    "description": "Specialized paint and coating systems providing high-performance protective barrier coatings and durable surface finishes for Berger.",
+    "chemicalsUsed": [
+      "Protective Surface Coating",
+      "Specialized Primer",
+      "Durable Topcoat System"
+    ],
+    "highlights": [
+      "Durable and weather-resistant protective finish",
+      "High-grade chemical coatings for long-term surface protection",
+      "Applied using modern application techniques",
+      "Commitment to quality workmanship and customer satisfaction"
+    ],
+    "beforeAfterImages": [
+      "/images/project-11.jpeg"
+    ],
+    "createdAt": "2024-03-10T11:00:00.000Z"
+  },
+  {
+    "id": "proj-4-suzuki-waterproofing",
+    "title": "Facility Waterproofing & Chemical Solutions",
+    "client": "Suzuki",
+    "category": "Waterproofing",
+    "secondaryCategory": "Industrial Solutions",
+    "location": "Pakistan",
+    "year": 2023,
+    "status": "Completed",
+    "featured": true,
+    "imageUrl": "/images/project-13.jpeg",
+    "description": "Professional waterproofing and specialized chemical application delivering durable, reliable moisture defense for Suzuki facility.",
+    "chemicalsUsed": [
+      "Waterproofing Membrane System",
+      "Penetrating Chemical Slurry",
+      "Joint Sealing Compounds"
+    ],
+    "highlights": [
+      "Reliable moisture protection preventing seepage and structural dampness",
+      "High-performance construction chemicals and precision application",
+      "Cost-effective and durable solution for industrial and commercial facilities",
+      "Experienced applicator team ensuring reliable results"
+    ],
+    "beforeAfterImages": [
+      "/images/project-14.jpeg"
+    ],
+    "createdAt": "2023-08-14T10:15:00.000Z"
+  },
+  {
+    "id": "proj-5-commercial-epoxy",
+    "title": "Seamless Interior Epoxy Flooring",
+    "client": "Commercial Client",
+    "category": "Epoxy Flooring",
+    "secondaryCategory": "Commercial Solutions",
+    "location": "Pakistan",
+    "year": 2024,
+    "status": "Completed",
+    "featured": false,
+    "imageUrl": "/images/project-4.jpeg",
+    "description": "Turnkey supply and application of seamless colored epoxy flooring with coved base borders for commercial interior spaces.",
+    "chemicalsUsed": [
+      "High-Gloss Epoxy Resin",
+      "Coved Base Epoxy Mortar",
+      "Surface Sealer"
+    ],
+    "highlights": [
+      "Vibrant seamless finish with integrated coved borders",
+      "Hygienic, smooth, and easily sanitized surface",
+      "Applied using modern application techniques",
+      "Professional service and reliable durability"
+    ],
+    "beforeAfterImages": [
+      "/images/project-7.jpeg",
+      "/images/project-8.jpeg"
+    ],
+    "createdAt": "2024-02-01T14:20:00.000Z"
+  },
+  {
+    "id": "proj-6-infrastructure-flooring",
+    "title": "Flooring & Surface Coating Solutions",
+    "client": "Infrastructure Client",
+    "category": "Epoxy Flooring",
+    "secondaryCategory": "Infrastructure Solutions",
+    "location": "Pakistan",
+    "year": 2023,
+    "status": "Completed",
+    "featured": false,
+    "imageUrl": "/images/project-5.jpeg",
+    "description": "Comprehensive supply and application of modern epoxy flooring and protective surface coatings for residential, commercial, and infrastructure projects.",
+    "chemicalsUsed": [
+      "Self-Leveling Epoxy Screed",
+      "Bonding Primer",
+      "Protective Finish"
+    ],
+    "highlights": [
+      "Reliable, durable, and cost-effective surface protection",
+      "Engineered using quality construction chemicals",
+      "Applied by experienced team",
+      "Customer satisfaction guaranteed"
+    ],
+    "beforeAfterImages": [
+      "/images/project-6.jpeg",
+      "/images/project-12.jpeg"
+    ],
+    "createdAt": "2023-09-05T12:00:00.000Z"
+  }
+]

@@ -36,6 +36,7 @@ import {
   Check
 } from 'lucide-react';
 import { Project, Inquiry, AdminUser, CMSFrameworkComparison } from '../types';
+import { readApiJson } from '../lib/api';
 import { COMPANY_INFO } from '../data/companyData';
 
 interface AdminPortalProps {
@@ -134,7 +135,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       })
         .then(res => {
           if (!res.ok) throw new Error('Session expired');
-          return res.json();
+          return readApiJson(res);
         })
         .then(data => {
           setUser(data.user);
@@ -158,17 +159,17 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       ]);
 
       if (projRes.ok) {
-        const p = await projRes.json();
+        const p = await readApiJson(projRes);
         setProjects(Array.isArray(p) ? p : []);
       }
 
       if (inqRes.ok) {
-        const i = await inqRes.json();
+        const i = await readApiJson(inqRes);
         setInquiries(Array.isArray(i) ? i : []);
       }
 
       if (cmsRes.ok) {
-        const c = await cmsRes.json();
+        const c = await readApiJson(cmsRes);
         setCmsFrameworks(c);
       }
     } catch (err) {
@@ -191,7 +192,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         body: JSON.stringify({ username: loginUsername, password: loginPassword })
       });
 
-      const data = await res.json();
+      const data = await readApiJson(res);
       if (!res.ok) {
         throw new Error(data.error || 'Authentication failed');
       }
@@ -280,7 +281,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         body: JSON.stringify(payload)
       });
 
-      const data = await res.json();
+      const data = await readApiJson(res);
       if (!res.ok) {
         throw new Error(data.error || 'Failed to save project');
       }
@@ -318,7 +319,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             })
           });
 
-          const data = await res.json();
+          const data = await readApiJson(res);
           if (!res.ok) {
             throw new Error(data.error || 'Upload failed');
           }
@@ -374,7 +375,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             })
           });
 
-          const data = await res.json();
+          const data = await readApiJson(res);
           if (!res.ok) {
             throw new Error(data.error || 'Video upload failed');
           }
@@ -430,7 +431,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
           })
         });
 
-        const data = await res.json();
+        const data = await readApiJson(res);
         if (!res.ok || !data.url) {
           throw new Error(data.error || `Failed to upload ${file.name}`);
         }
@@ -460,7 +461,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       const res = await fetch('/api/uploads', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readApiJson(res);
       if (res.ok) {
         setMediaFiles(data.files || []);
       }
@@ -504,7 +505,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 successCount++;
                 resolve();
               } else {
-                const errData = await res.json();
+                const errData = await readApiJson(res);
                 reject(new Error(errData.error || 'Upload error'));
               }
             } catch (e) {
@@ -561,7 +562,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         loadAdminData(token);
         onProjectsUpdated();
       } else {
-        const errData = await res.json();
+        const errData = await readApiJson(res);
         showToast(`Failed: ${errData.error || 'Could not link media'}`);
       }
     } catch (err) {
@@ -600,7 +601,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       });
 
       if (!res.ok) {
-        const data = await res.json();
+        const data = await readApiJson(res);
         throw new Error(data.error || 'Failed to delete');
       }
 

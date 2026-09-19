@@ -1,0 +1,28 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "ramzanchemicalconstruction"
+main = "worker/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Static Assets configuration for Vite SPA build
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+# Server-side environment variables
+[vars]
+ADMIN_USERNAME = "admin"
+ADMIN_EMAIL = "admin@ramzanchemical.com"
+# Note: For production deployments, set sensitive secrets with:
+# npx wrangler secret put ADMIN_PASSWORD
+# npx wrangler secret put JWT_SECRET
+
+# Optional Durable KV storage for projects, inquiries & uploads:
+# To enable persistent global KV storage:
+# 1. Run: npx wrangler kv:namespace create RCC_KV
+# 2. Uncomment and add the generated namespace id below:
+# [[kv_namespaces]]
+# binding = "RCC_KV"
+# id = "<YOUR_KV_NAMESPACE_ID>"
+# preview_id = "<YOUR_PREVIEW_KV_NAMESPACE_ID>"

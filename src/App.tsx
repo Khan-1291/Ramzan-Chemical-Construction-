@@ -1,191 +1,204 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ServicesSection } from './components/ServicesSection';
-import { ClientsShowcase } from './components/ClientsShowcase';
-import { PortfolioSection } from './components/PortfolioSection';
-import { ProjectDetailModal } from './components/ProjectDetailModal';
+import { Services } from './components/Services';
+import { Clients } from './components/Clients';
+import { Portfolio } from './components/Portfolio';
 import { CostEstimator } from './components/CostEstimator';
-import { CompanyCredentials } from './components/CompanyCredentials';
+import { Process } from './components/Process';
+import { CorporateCredentials } from './components/CorporateCredentials';
 import { ContactSection } from './components/ContactSection';
-import { AdminPortal } from './components/AdminPortal';
+import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
+import { QuickActions } from './components/QuickActions';
+import { ProjectDetailModal } from './components/ProjectDetailModal';
+import { AdminModal } from './components/AdminModal';
 import { Project } from './types';
-import { COMPANY_INFO } from './data/companyData';
-import { MessageSquare, Phone } from 'lucide-react';
+import { INITIAL_PROJECTS } from './data/initialData';
 
-export default function App() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loadingProjects, setLoadingProjects] = useState<boolean>(true);
+export function App() {
+  const [projects, setProjects] = useState<Project[]>(INITIAL_PROJECTS);
+  const [isLoadingProjects, setIsLoadingProjects] = useState<boolean>(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
-  // Admin modal state
-  const [isAdminOpen, setIsAdminOpen] = useState<boolean>(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(() => {
-    return Boolean(localStorage.getItem('rcc_admin_token'));
+
+  // Admin state
+  const [adminModalOpen, setAdminModalOpen] = useState<boolean>(false);
+  const [adminToken, setAdminToken] = useState<string | null>(() => {
+    try {
+      return localStorage.getItem('rcc_admin_token');
+    } catch {
+      return null;
+    }
   });
 
-  // Contact form pre-fill props
-  const [inquiryService, setInquiryService] = useState<string>('Waterproofing');
-  const [inquiryArea, setInquiryArea] = useState<string>('');
+  // Pre-fill state for contact inquiry section
+  const [inquiryPreFill, setInquiryPreFill] = useState<{
+    service?: string;
+    area?: string;
+    notes?: string;
+  }>({});
 
-  const fetchProjects = async () => {
-    setLoadingProjects(true);
+  // Fetch Projects from /api/projects
+  const fetchProjects = useCallback(async () => {
+    setIsLoadingProjects(true);
     try {
       const res = await fetch('/api/projects');
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
-        setProjects(data);
-      } else {
-        throw new Error('Failed to fetch');
+        if (Array.isArray(data) && data.length > 0) {
+          setProjects(data);
+          return;
+        }
       }
+      // If endpoint returned non-JSON (e.g. index.html before deployment fix), fallback safely
+      console.warn('Projects API returned non-JSON or empty response, retaining verified initial projects.');
     } catch (err) {
-      console.error('Error fetching projects from API, checking fallback:', err);
+      console.warn('Network error fetching /api/projects:', err);
     } finally {
-      setLoadingProjects(false);
+      setIsLoadingProjects(false);
     }
-  };
+  }, []);
+
+  // Verify Admin Token Session
+  const verifyAdminSession = useCallback(async (token: string) => {
+    try {
+      const res = await fetch('/api/auth/me', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!res.ok) {
+        // Token expired or invalid
+        localStorage.removeItem('rcc_admin_token');
+        setAdminToken(null);
+      }
+    } catch {
+      // Offline / network fallback
+    }
+  }, []);
 
   useEffect(() => {
     fetchProjects();
-
-    const checkAdminRoute = () => {
-      if (window.location.hash === '#admin' || window.location.pathname.startsWith('/admin')) {
-        setIsAdminOpen(true);
-      }
-    };
-    checkAdminRoute();
-    window.addEventListener('hashchange', checkAdminRoute);
-    window.addEventListener('popstate', checkAdminRoute);
-
-    const handleStorageChange = () => {
-      setIsAdminLoggedIn(Boolean(localStorage.getItem('rcc_admin_token')));
-    };
-    window.addEventListener('storage', handleStorageChange);
-    return () => {
-      window.removeEventListener('hashchange', checkAdminRoute);
-      window.removeEventListener('popstate', checkAdminRoute);
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
-  const handleSelectForInquiry = (projectName: string, service: string) => {
-    setInquiryService(service || 'Waterproofing');
-    setInquiryArea(`Inquiry for similar solution as "${projectName}"`);
-    
-    // Scroll smoothly to contact section
-    const contactEl = document.getElementById('contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
+    if (adminToken) {
+      verifyAdminSession(adminToken);
     }
+  }, [fetchProjects, adminToken, verifyAdminSession]);
+
+  const handleLogin = (token: string) => {
+    try {
+      localStorage.setItem('rcc_admin_token', token);
+    } catch {}
+    setAdminToken(token);
   };
 
-  const handleQuoteRequestedFromEstimator = (serviceName: string, areaText: string) => {
-    setInquiryService(serviceName);
-    setInquiryArea(areaText);
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem('rcc_admin_token');
+    } catch {}
+    setAdminToken(null);
+  };
 
-    const contactEl = document.getElementById('contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Handler for service quote button click
+  const handleSelectServiceForInquiry = (serviceTitle: string) => {
+    setInquiryPreFill({
+      service: serviceTitle,
+      notes: `Inquiring for specialized application of ${serviceTitle}.`
+    });
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Handler for cost estimator quote button click
+  const handleApplyEstimateToInquiry = (service: string, area: string, notes: string) => {
+    setInquiryPreFill({ service, area, notes });
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Handler for project modal inquiry click
+  const handleProjectInquiry = (projectTitle: string) => {
+    setInquiryPreFill({
+      notes: `Interested in replicating engineering specification and chemical system from project: "${projectTitle}".`
+    });
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-amber-500 selection:text-white">
-      
-      {/* Sticky Header Navigation */}
-      <Navbar 
-        onOpenAdmin={() => setIsAdminOpen(true)}
-        activeSection="hero"
-        isAdminLoggedIn={isAdminLoggedIn}
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-amber-500 selection:text-slate-950 flex flex-col antialiased">
+      {/* Top Corporate Navigation */}
+      <Navbar
+        onOpenAdmin={() => setAdminModalOpen(true)}
+        isAdminLoggedIn={!!adminToken}
       />
 
-      {/* Main Page Content */}
       <main className="flex-1">
-        {/* Hero with FBR/SECP Badging & Reputable Clients */}
+        {/* Hero Section */}
         <Hero />
 
-        {/* 3 Core Services: Waterproofing, Epoxy Flooring, Paint & Coating Systems */}
-        <ServicesSection />
+        {/* Specialized Services */}
+        <Services onSelectServiceForInquiry={handleSelectServiceForInquiry} />
 
-        {/* Clients & Landmarks: NLC, Berger, Toyota, Suzuki */}
-        <ClientsShowcase />
+        {/* Corporate Track Record & Clients */}
+        <Clients />
 
-        {/* Dynamic Project Portfolio Gallery with category filters & search */}
-        <PortfolioSection
+        {/* Portfolio Showcase */}
+        <Portfolio
           projects={projects}
-          loading={loadingProjects}
-          onSelectProject={(p) => setSelectedProject(p)}
-          onOpenAdmin={() => setIsAdminOpen(true)}
-          isAdminLoggedIn={isAdminLoggedIn}
+          isLoading={isLoadingProjects}
+          onOpenAdmin={() => setAdminModalOpen(true)}
+          isAdminLoggedIn={!!adminToken}
+          onSelectProject={project => setSelectedProject(project)}
         />
 
-        {/* Interactive Construction Chemical & Cost Estimator */}
-        <CostEstimator 
-          onQuoteRequested={handleQuoteRequestedFromEstimator}
-        />
+        {/* Interactive Cost Estimator */}
+        <CostEstimator onApplyEstimateToInquiry={handleApplyEstimateToInquiry} />
 
-        {/* Official FBR / SECP Company Registration Card & 5-Step Quality Methodology */}
-        <CompanyCredentials />
+        {/* 5-Step Certified Methodology */}
+        <Process />
 
-        {/* Free Site Inspection & Consultation Booking Form + FAQs */}
+        {/* Legal & Corporate Credentials */}
+        <CorporateCredentials />
+
+        {/* Direct Technical Inquiry & Contact */}
         <ContactSection
-          initialService={inquiryService}
-          initialArea={inquiryArea}
-          onInquirySubmitted={() => {
-            // Optional callback
-          }}
+          initialService={inquiryPreFill.service}
+          initialArea={inquiryPreFill.area}
+          initialNotes={inquiryPreFill.notes}
         />
+
+        {/* Technical FAQ */}
+        <FAQSection />
       </main>
 
       {/* Corporate Footer */}
-      <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
+      <Footer
+        onOpenAdmin={() => setAdminModalOpen(true)}
+        isAdminLoggedIn={!!adminToken}
+      />
 
-      {/* Project Detail Modal */}
+      {/* Floating Fast Action Buttons */}
+      <QuickActions />
+
+      {/* Detailed Project Modal */}
       <ProjectDetailModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
-        onSelectForInquiry={handleSelectForInquiry}
+        onInquire={handleProjectInquiry}
       />
 
-      {/* Admin CMS & Portfolio Management Portal */}
-      <AdminPortal
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        onProjectsUpdated={() => {
-          fetchProjects();
-          setIsAdminLoggedIn(Boolean(localStorage.getItem('rcc_admin_token')));
-        }}
+      {/* Comprehensive Admin Dashboard Modal */}
+      <AdminModal
+        isOpen={adminModalOpen}
+        onClose={() => setAdminModalOpen(false)}
+        token={adminToken}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+        projects={projects}
+        onRefreshProjects={fetchProjects}
       />
-
-      {/* Mobile Floating Quick Action Bar */}
-      <aside aria-label="Quick contact actions" className="fixed bottom-4 right-4 z-30 flex flex-col items-end gap-2.5">
-        <a
-          href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappMessage)}`}
-          target="_blank"
-          rel="noreferrer"
-          className="w-13 h-13 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl flex items-center justify-center transition-transform hover:scale-105 active:scale-95 group"
-          title="Chat with Chemical Engineer on WhatsApp"
-        >
-          <MessageSquare className="w-6 h-6" />
-          <span className="sr-only">Chat on WhatsApp</span>
-        </a>
-
-        <a
-          href={`tel:${COMPANY_INFO.phone}`}
-          className="w-11 h-11 rounded-full bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95 sm:hidden"
-          title="Emergency Call"
-        >
-          <Phone className="w-5 h-5" />
-          <span className="sr-only">Call Office</span>
-        </a>
-      </aside>
-
     </div>
   );
 }
+
+export default App;

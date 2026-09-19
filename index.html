@@ -3,8 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Safeguard against environments/sandboxes where window.fetch is getter-only
+      (function() {
+        try {
+          var g = typeof globalThis !== 'undefined' ? globalThis : (typeof window !== 'undefined' ? window : this);
+          if (g) {
+            var rawFetch = typeof g.fetch === 'function' ? g.fetch.bind(g) : g.fetch;
+            var activeFetch = rawFetch;
+            Object.defineProperty(g, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() {
+                return activeFetch;
+              },
+              set: function(fn) {
+                activeFetch = fn;
+              }
+            });
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              try {
+                var desc = Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+                if (desc && !desc.set) {
+                  Object.defineProperty(Window.prototype, 'fetch', {
+                    configurable: true,
+                    enumerable: true,
+                    get: function() {
+                      return activeFetch;
+                    },
+                    set: function(fn) {
+                      activeFetch = fn;
+                    }
+                  });
+                }
+              } catch (errP) {}
+            }
+          }
+        } catch (err) {}
+      })();
+    </script>
     <title>Ramzan Chemical Construction (Pvt.) Ltd. | Waterproofing, Paint Systems & Epoxy Flooring</title>
-    <meta name="description" content="Professional construction solutions company specializing in Waterproofing, Paint & Coating Systems, and Epoxy Flooring. Quality supply and application services for residential, commercial, industrial, and infrastructure projects." />
+    <meta name="description" content="Professional construction solutions company specializing in Waterproofing, Paint & Coating Systems, and Epoxy Flooring. Quality supply and application services for residential, commercial, industrial, and infrastructure projects across Pakistan." />
     
     <!-- OpenGraph Meta -->
     <meta property="og:site_name" content="Ramzan Chemical Construction (Pvt.) Ltd." />
@@ -29,11 +68,11 @@
           "name": "Ramzan Chemical Construction (Pvt.) Ltd.",
           "legalName": "Ramzan Chemical Construction (Pvt.) Ltd.",
           "description": "Professional construction solutions company specializing in Waterproofing, Paint & Coating Systems, and Epoxy Flooring. Quality supply and application services for residential, commercial, industrial, and infrastructure projects.",
-          "telephone": ["+92-300-9357492", "+92-315-9357492"],
+          "telephone": ["+92-345-9191020", "+92-300-9357492", "+92-315-9357492"],
           "taxID": "0350813",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Mohallah Sher Garh, Near Post Office, P/O Sher Garh",
+            "streetAddress": "Office No. 38, Near Bypass, Abaseen Adda, Yousafzai Market",
             "addressLocality": "Mardan",
             "addressRegion": "Khyber Pakhtunkhwa",
             "addressCountry": "PK"
@@ -61,18 +100,14 @@
               "position": 1,
               "item": {
                 "@type": "CreativeWork",
-                "name": "Heavy-Duty Epoxy Flooring & Warehousing Waterproofing",
-                "description": "Turnkey supply and application of 3mm self-leveling industrial epoxy floor coating combined with elastomeric polyurethane roof waterproofing across heavy logistics bays for NLC.",
-                "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+                "name": "Industrial Epoxy Flooring Application",
+                "description": "Professional supply and application of durable industrial epoxy flooring executed using quality construction chemicals and modern application techniques for NLC.",
+                "image": "/images/project-1.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
                 },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Freight Hub & Logistics Terminal, KPK, Pakistan"
-                },
-                "about": "Epoxy Flooring and Waterproofing"
+                "about": "Epoxy Flooring"
               }
             },
             {
@@ -80,18 +115,14 @@
               "position": 2,
               "item": {
                 "@type": "CreativeWork",
-                "name": "High-Gloss Workshop Epoxy & Service Bay Demarcation",
-                "description": "Installation of high-gloss chemical-resistant epoxy flooring across vehicle maintenance bays, quick-lube pits, and customer handover areas for Toyota Corolla / Frontier Motors.",
-                "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+                "name": "Commercial Workshop Epoxy Flooring",
+                "description": "Quality supply and application of durable, chemical-resistant epoxy flooring for Toyota Corolla automotive workshop and service facilities.",
+                "image": "/images/project-15.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
                 },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Mardan & Regional Service Center, Pakistan"
-                },
-                "about": "Epoxy Flooring and Paint & Coating Systems"
+                "about": "Epoxy Flooring"
               }
             },
             {
@@ -99,16 +130,12 @@
               "position": 3,
               "item": {
                 "@type": "CreativeWork",
-                "name": "Anti-Carbonation & Weather-Shield Protective Coating",
-                "description": "Industrial structural coating application involving structural steel anti-corrosion primers, elastomeric anti-carbonation facade coatings, and roof seepage protection for Berger Paints Pakistan.",
-                "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1200&q=80",
+                "name": "Paint & Protective Coating Systems",
+                "description": "Specialized paint and coating systems providing high-performance protective barrier coatings and durable surface finishes for Berger.",
+                "image": "/images/project-10.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
-                },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Industrial Corridor, KPK, Pakistan"
                 },
                 "about": "Paint & Coating Systems"
               }
@@ -118,18 +145,14 @@
               "position": 4,
               "item": {
                 "@type": "CreativeWork",
-                "name": "Substructure Basement Waterproofing & ESD Flooring",
-                "description": "Subterranean basement waterproofing using negative-side crystalline slurries, coupled with conductive anti-static (ESD) epoxy flooring for Pak Suzuki Authorized Workshop.",
-                "image": "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1200&q=80",
+                "name": "Facility Waterproofing & Chemical Solutions",
+                "description": "Professional waterproofing and specialized chemical application delivering durable, reliable moisture defense for Suzuki facility.",
+                "image": "/images/project-13.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
                 },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Peshawar Road, Pakistan"
-                },
-                "about": "Waterproofing and Epoxy Flooring"
+                "about": "Waterproofing"
               }
             },
             {
@@ -137,18 +160,14 @@
               "position": 5,
               "item": {
                 "@type": "CreativeWork",
-                "name": "4mm APP Membrane Commercial Roof & Reservoir Lining",
-                "description": "Torch-applied 4mm Atactic Polypropylene (APP) modified bitumen membrane for flat roof with potable water certified epoxy lining for Yousafzai Commercial Plaza & Towers.",
-                "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+                "name": "Seamless Interior Epoxy Flooring",
+                "description": "Turnkey supply and application of seamless colored epoxy flooring with coved base borders for commercial interior spaces.",
+                "image": "/images/project-4.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
                 },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Mardan Commercial Center, Pakistan"
-                },
-                "about": "Waterproofing"
+                "about": "Epoxy Flooring"
               }
             },
             {
@@ -156,18 +175,14 @@
               "position": 6,
               "item": {
                 "@type": "CreativeWork",
-                "name": "Thermal Shock Resistant Polyurethane (PU) Concrete Screed",
-                "description": "Application of 6mm heavy-duty polyurethane resin mortar designed for extreme thermal shock and high chemical acidity for Premier Food Processing & Cold Chain Facility.",
-                "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+                "name": "Flooring & Surface Coating Solutions",
+                "description": "Comprehensive supply and application of modern epoxy flooring and protective surface coatings for residential, commercial, and infrastructure projects.",
+                "image": "/images/project-5.jpeg",
                 "creator": {
                   "@type": "Organization",
                   "name": "Ramzan Chemical Construction (Pvt.) Ltd."
                 },
-                "locationCreated": {
-                  "@type": "Place",
-                  "name": "Hattar Industrial Estate, Pakistan"
-                },
-                "about": "Epoxy Flooring and Polyurethane Screeds"
+                "about": "Epoxy Flooring"
               }
             }
           ]
@@ -184,4 +199,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

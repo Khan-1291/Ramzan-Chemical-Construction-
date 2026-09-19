@@ -321,10 +321,5 @@
     "fullName": "Ramzan Chemical Management",
     "role": "SuperAdmin"
   },
-  "sessions": {
-    "3417db2783e3dc329245c54804eab3662f39c539499798eb8ce4d176027e9a31": {
-      "username": "admin@ramzanchemical.com",
-      "expiresAt": 1790157382434
-    }
-  }
+  "sessions": {}
 }

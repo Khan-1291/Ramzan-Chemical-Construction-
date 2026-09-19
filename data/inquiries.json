@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Engr. Bilal Shah",
+    "phone": "0300-5551234",
+    "serviceRequested": "Waterproofing",
+    "location": "Nowshera Commercial Center",
+    "notes": "Need 4mm APP membrane quotation.",
+    "organization": "KP Housing Authority",
+    "estimatedArea": "25000 sq.ft",
+    "id": "inq-1789799873080-r2nuhc",
+    "status": "New",
+    "createdAt": "2026-09-19T06:37:53.080Z"
+  },
+  {
+    "id": "inq-initial-01",
+    "name": "Engr. Tariq Mehmood",
+    "organization": "KPK Commercial Developers Consortium",
+    "phone": "+92 300 1234567",
+    "email": "tariq.mehmood@example.com",
+    "serviceRequested": "Waterproofing",
+    "estimatedArea": "35,000 sq.ft",
+    "location": "Mardan Ring Road Plaza",
+    "notes": "Severe basement cold joint water seepage during monsoon. Need urgent crystalline chemical injection and APP roof membrane quote.",
+    "status": "Contacted",
+    "createdAt": "2026-09-17T06:37:53.080Z"
+  }
+]
