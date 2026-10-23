@@ -159,7 +159,7 @@ By default, the worker uses seed projects and in-memory caches. To enable global
 | `GET` | `/api/uploads` | Bearer Token | Lists uploaded site photographs |
 | `POST` | `/api/upload` | Bearer Token | Uploads base64 image file to `/uploads/` |
 | `GET` | `/api/cms-frameworks`| Public | Returns headless CMS research matrix |
-
+|'GET' | `/api/cms-frameworks`| public |  return headless
 ---
 
 ## 7. Company Details
